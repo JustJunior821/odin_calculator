@@ -80,6 +80,16 @@ for (let i = 0; i < 9; i +=3 )
     }  
 }
 
+// Rudimentary method to add 0 to the calculator
+let number = document.createElement(`button`);
+number.classList.toggle("button");
+number.style.width = `${(calc_width - calc_pad)/3}px`;
+number.style.height = `100px`;
+let number_content = 0;
+number.textContent = number_content;
+number_group.appendChild(number);
+
+
 for (let i = 0; i < 2; i++) // Make the button's text content change depending on what loop iteration is current (first is +, second is -, etc)
 {
     for (let j = 0; j < 3; j++)
@@ -134,7 +144,7 @@ for (let i = 0; i < buttonList.length; i++)
                     operator = '0';
                 }
             }
-            else if (i >= 9) // use the isNaN function to check if the display value is not a number
+            else if (i >= 10) // use the isNaN function to check if the display value is not a number
             {
 
                     if (isNaN(display_value))
@@ -154,7 +164,7 @@ for (let i = 0; i < buttonList.length; i++)
                         display_value = buttonList[i].textContent;
                     }
             }
-            else if (i < 9)
+            else if (i < 10)
             {
                 if (isNaN(display_value * 1))
                     display_value = buttonList[i].textContent;
